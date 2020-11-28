@@ -20,11 +20,11 @@ jobs:
           - os: windows-latest
             output-name: github-api.exe
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
         
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: "Setup Dart"
+        uses: DanTup/gh-actions/setup-dart@master
 
       - name: Install dependencies
         run: dart pub get
