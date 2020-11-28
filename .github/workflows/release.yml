@@ -59,6 +59,9 @@ jobs:
         run: |
           echo ::set-output name=file_name::${REPOSITORY_NAME##*/}-${TAG_REF_NAME##*/v}
           value=`cat release_url/release_url.txt`
+          ls release_url/
+          cat release_url/release_url.txt
+          echo $value
           echo ::set-output name=upload_url::$value
         env:
           TAG_REF_NAME: ${{ github.ref }}
