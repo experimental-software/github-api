@@ -1,0 +1,58 @@
+name: Update latest release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        include:
+          - os: ubuntu-latest
+            output-name: github-api_linux-gnu
+            output-label: GitHub API for Linux
+          - os: macOS-latest
+            output-name: github-api_darwin
+            output-label: GitHub API for MacOS
+          - os: windows-latest
+            output-name: github-api.exe
+            output-label: GitHub API for Windows
+
+    steps:
+      - name: Install Dart
+        uses: DanTup/gh-actions/setup-dart@master
+        
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: dart pub get
+        
+      - name: Compile binary file
+        run: dart2native bin/github_api.dart -v -o build/${{ matrix.output-name }}
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          
+      - name: Upload ${{ matrix.output-name }} Binary
+        id: ${{ matrix.output-name }}
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/${{ matrix.output-name }}
+          asset_name: ${{ matrix.output-label }}
+          asset_content_type: application/octet-stream          

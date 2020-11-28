@@ -19,6 +19,10 @@ mkdir build/
 dart2native bin/github_api.dart -o build/github-api
 ```
 
+## Release
+
+When a new version tag is pushed, a new release of `github-api` is automatically created via GitHub Actions for Linux, MacOS, and Windows.
+
 ## References
 
 - https://developer.github.com/v3/
