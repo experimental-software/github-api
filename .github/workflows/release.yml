@@ -1,4 +1,4 @@
-name: Create Release for Version Tag
+name: Create Release for Tag
 
 on:
   push:
@@ -19,6 +19,7 @@ jobs:
             output-name: github-api_Darwin
           - os: windows-latest
             output-name: github-api.exe
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -39,7 +40,4 @@ jobs:
           files: |
             ${{ matrix.output-name }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
-
-
-       
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
