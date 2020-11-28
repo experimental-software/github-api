@@ -1,8 +1,12 @@
-import 'package:github_api/github_api.dart';
-import 'package:test/test.dart';
+import "package:github_api/github_api.dart";
+import "package:test/test.dart";
 
 void main() {
-  test('calculate', () {
+  test("calculate", () {
     expect(calculate(), 42);
   });
+}
+
+int calculate() {
+  return 6 * 7;
 }

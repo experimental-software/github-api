@@ -1,5 +1,14 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+# GitHub API
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+A commandline client and Dart library for access on the GitHub API.
+
+## Compile project
+
+```
+mkdir build/
+dart2native bin/github_api.dart -o build/github-api
+```
+
+## References
+
+- https://developer.github.com/v3/
