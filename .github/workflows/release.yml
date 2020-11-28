@@ -1,4 +1,4 @@
-name: Update latest release
+name: Create Release for Version Tag
 
 on:
   push:
@@ -31,17 +31,6 @@ jobs:
         
       - name: Compile binary file
         run: dart2native bin/github_api.dart -v -o build/${{ matrix.output-name }}
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
           
       - uses: actions/upload-artifact@v1
         with:
