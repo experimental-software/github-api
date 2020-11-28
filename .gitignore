@@ -10,3 +10,7 @@ doc/api/
 
 # Text editors
 .idea/
+
+# Gradle
+.gradle/
+
