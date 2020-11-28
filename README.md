@@ -7,7 +7,7 @@ A commandline client and Dart library for access on the GitHub API.
 Here is how you can use the GitHub API on Ubuntu:
 
 ```
-curl -L https://github.com/experimental-software/github-api/releases/download/latest/github-api > github-api
+curl -L https://github.com/experimental-software/github-api/releases/download/latest/github-api_ubuntu > github-api
 chmod +x github-api
 ./github-api
 ```
