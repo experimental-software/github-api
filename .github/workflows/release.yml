@@ -3,7 +3,7 @@ name: Create Release for Version Tag
 on:
   push:
     tags:
-      - 'v*'
+      - '*'
 
 jobs:
   release:
@@ -14,9 +14,9 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
         include:
           - os: ubuntu-latest
-            output-name: github-api_linux-gnu
+            output-name: github-api_Linux
           - os: macOS-latest
-            output-name: github-api_darwin
+            output-name: github-api_Darwin
           - os: windows-latest
             output-name: github-api.exe
     steps:

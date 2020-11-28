@@ -1,0 +1,8 @@
+task releaseSnapshot(type: Exec) {
+    executable "bash"
+    args "-c", '''
+        git push --delete upstream latest
+        git tag latest -f
+        git push upstream latest
+    '''
+}

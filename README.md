@@ -4,10 +4,11 @@ A commandline client and Dart library for access on the GitHub API.
 
 ## Getting started
 
-Here is how you can use the GitHub API on Ubuntu:
+Here is how you can use the GitHub API on Linux and MacOS:
 
 ```
-curl -L https://github.com/experimental-software/github-api/releases/download/latest/github-api_ubuntu > github-api
+curl -L https://github.com/experimental-software/github-api/releases/download/latest/github-api_$(uname) \
+  > github-api
 chmod +x github-api
 ./github-api
 ```
