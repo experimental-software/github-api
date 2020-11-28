@@ -38,7 +38,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           prerelease: true
-          body: "The latest development release."
+          body: "The latest development release for ${{ matrix.output-name }}."
           files: |
             ${{ matrix.output-name }}
         env:
