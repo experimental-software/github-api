@@ -1,9 +1,9 @@
-name: Create Release for Tag
+name: Create Offical Release
 
 on:
   push:
     tags:
-      - '*'
+      - 'v*'
 
 jobs:
   release:
