@@ -37,3 +37,10 @@ jobs:
           name: native-executables
           path: build
        
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "native-executables"
+          token: ${{ secrets.GITHUB_TOKEN }}
