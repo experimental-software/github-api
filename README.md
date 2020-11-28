@@ -15,6 +15,8 @@ chmod +x github-api
 
 ## Compile project
 
+If you want to build the project locally, you can do so like this:
+
 ```
 mkdir build/
 dart2native bin/github_api.dart -o build/github-api
@@ -22,7 +24,14 @@ dart2native bin/github_api.dart -o build/github-api
 
 ## Release
 
-When a new version tag is pushed, a new release of `github-api` is automatically created via GitHub Actions for Linux, MacOS, and Windows.
+When a new Git tag is pushed, a new release of `github-api` is automatically created via GitHub Actions for Linux, MacOS, and Windows.
+
+```
+RELEASE_VERSION=0.1.0
+TAG_NAME=v${RELEASE_VERSION}
+git tag ${TAG_NAME}
+git push upstream ${TAG_NAME}
+```
 
 ## References
 
