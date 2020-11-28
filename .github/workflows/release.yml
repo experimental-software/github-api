@@ -14,13 +14,10 @@ jobs:
         include:
           - os: ubuntu-latest
             output-name: github-api_linux-gnu
-            output-label: GitHub API for Linux
           - os: macOS-latest
             output-name: github-api_darwin
-            output-label: GitHub API for MacOS
           - os: windows-latest
             output-name: github-api.exe
-            output-label: GitHub API for Windows
 
     steps:
       - name: Install Dart
@@ -54,5 +51,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/${{ matrix.output-name }}
-          asset_name: ${{ matrix.output-label }}
+          asset_name: ${{ matrix.output-name }}
           asset_content_type: application/octet-stream          

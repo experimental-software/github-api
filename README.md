@@ -26,3 +26,4 @@ When a new version tag is pushed, a new release of `github-api` is automatically
 ## References
 
 - https://developer.github.com/v3/
+- https://git-scm.com/book/en/v2/Git-Basics-Tagging
