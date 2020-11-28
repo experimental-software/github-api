@@ -14,24 +14,30 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
         include:
           - os: ubuntu-latest
-            output-name: hello-linux
+            output-name: github-api_linux-gnu
           - os: macOS-latest
-            output-name: hello-mac
+            output-name: github-api_darwin
           - os: windows-latest
-            output-name: hello-windows.exe
+            output-name: github-api.exe
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build
-        run: echo ${{ github.sha }} > Release_${{ matrix.output-name }}.txt
-      - name: Test
-        run: cat Release_${{ matrix.output-name }}.txt
+        
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: dart pub get
+        
+      - name: Build release
+        run: dart2native bin/github_api.dart -o ${{ matrix.output-name }}       
+
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            Release_${{ matrix.output-name }}.txt
+            ${{ matrix.output-name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
 
