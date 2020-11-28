@@ -19,7 +19,7 @@ If you want to build the project locally, you can do so like this:
 
 ```bash
 mkdir build/
-dart2native bin/github_api.dart -o build/github-api
+dart2native bin/main.dart -o build/github-api
 ```
 
 ## Release
@@ -35,5 +35,5 @@ git push upstream ${TAG_NAME}
 
 ## References
 
-- https://developer.github.com/v3/
+- https://docs.github.com/en/free-pro-team@latest/rest
 - https://git-scm.com/book/en/v2/Git-Basics-Tagging
