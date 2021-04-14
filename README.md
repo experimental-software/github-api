@@ -4,6 +4,15 @@ A commandline client and Dart library for access on the GitHub API.
 
 ## Getting started
 
+### With Dart
+
+```
+pub get
+dart pub global activate --source path .
+```
+
+### Without Dart
+
 Here is how you can use the GitHub API on Linux and MacOS:
 
 ```bash
